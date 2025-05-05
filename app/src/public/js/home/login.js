@@ -19,8 +19,16 @@ function login() {
   //오브젝트 형태로 데이터를 보내줘야 한다. json이라는 데이터 타입을 이용해서 전달
   //JSON.stringify(req)를 콘솔로 찍어보면 일반 문자열 형태로 출력이 된다.
   //body를 통해서 데이터를 전달할 때는 http 메서드 중의 post로 전달해줘야 한다.
+
+  //내가 전달하는 데이터가 JSON이라고 알려줘야 한다. -> header로 표현하고 오브젝트로 전달
+  //내가 보내는 데이터의 타입 명시 Content-Type
+
+  //login이라는 경로, POST라는 메서드로 데이터를 받을 수 있는 API가 마련되어 있어야 한다.
   fetch("/login", {
     method: "POST",
+    header: {
+      "Content-Type": "application/json",
+    },
     body: JSON.stringify(req),
   });
 }
