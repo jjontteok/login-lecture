@@ -23,12 +23,14 @@ function login() {
   //내가 전달하는 데이터가 JSON이라고 알려줘야 한다. -> header로 표현하고 오브젝트로 전달
   //내가 보내는 데이터의 타입 명시 Content-Type
 
-  //login이라는 경로, POST라는 메서드로 데이터를 받을 수 있는 API가 마련되어 있어야 한다.
+  //서버 /login이라는 경로, POST라는 메서드로 데이터를 받을 수 있는 API가 마련되어 있어야 한다.
   fetch("/login", {
     method: "POST",
-    header: {
+    headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(req),
-  });
+  })
+    .then((res) => res.json())
+    .then((res) => console.log(res));
 }
