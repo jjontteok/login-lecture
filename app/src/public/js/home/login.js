@@ -13,5 +13,14 @@ function login() {
     id: id.value,
     psword: psword.value,
   };
-  console.log(req);
+
+  //우선 login이라는 경로가 있다고 가정하고 작성
+  //login이라는 경로로 데이터를 전달해준다.
+  //오브젝트 형태로 데이터를 보내줘야 한다. json이라는 데이터 타입을 이용해서 전달
+  //JSON.stringify(req)를 콘솔로 찍어보면 일반 문자열 형태로 출력이 된다.
+  //body를 통해서 데이터를 전달할 때는 http 메서드 중의 post로 전달해줘야 한다.
+  fetch("/login", {
+    method: "POST",
+    body: JSON.stringify(req),
+  });
 }
